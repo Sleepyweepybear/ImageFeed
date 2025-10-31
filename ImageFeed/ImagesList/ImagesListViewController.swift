@@ -20,8 +20,8 @@ final class ImagesListViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-        tableView.contentInset.top = 16
-        tableView.verticalScrollIndicatorInsets.top = 16
+        tableView.contentInset.top = 12
+        tableView.verticalScrollIndicatorInsets.top = 12
     }
 }
 extension ImagesListViewController: UITableViewDataSource {
