@@ -13,11 +13,16 @@ final class ImagesListViewController: UIViewController {
         return formatter
     }()
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { .portrait }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.rowHeight = 200
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        tableView.contentInset.top = 16
+        tableView.verticalScrollIndicatorInsets.top = 16
     }
 }
 extension ImagesListViewController: UITableViewDataSource {

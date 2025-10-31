@@ -17,14 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A3C-hx-sdr">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="16" y="59" width="361" height="793"/>
                                 <color key="backgroundColor" name="YP_Black"/>
+                                <color key="sectionIndexBackgroundColor" name="YP_Black"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" id="JzL-7L-HgX" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="1067"/>
+                                        <rect key="frame" x="0.0" y="50" width="361" height="1067"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JzL-7L-HgX" id="byx-lX-rzm">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="1067"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="1067"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ap1-gX-uCy" userLabel="Cell Image">
@@ -49,10 +50,10 @@
                                             <constraints>
                                                 <constraint firstItem="Ap1-gX-uCy" firstAttribute="bottom" secondItem="N4B-Wh-MzV" secondAttribute="bottom" constant="8" id="07V-qJ-K07"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ap1-gX-uCy" secondAttribute="bottom" constant="4" id="3PQ-Uh-xdp"/>
-                                                <constraint firstItem="Ap1-gX-uCy" firstAttribute="leading" secondItem="byx-lX-rzm" secondAttribute="leading" constant="16" id="WTs-Fx-GtV"/>
+                                                <constraint firstItem="Ap1-gX-uCy" firstAttribute="leading" secondItem="byx-lX-rzm" secondAttribute="leading" id="WTs-Fx-GtV"/>
                                                 <constraint firstItem="uxb-Vb-sw1" firstAttribute="top" secondItem="Ap1-gX-uCy" secondAttribute="top" id="mXH-tZ-Hbh"/>
                                                 <constraint firstItem="N4B-Wh-MzV" firstAttribute="leading" secondItem="Ap1-gX-uCy" secondAttribute="leading" constant="8" id="nww-hw-5fv"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ap1-gX-uCy" secondAttribute="trailing" constant="16" id="onY-37-tgO"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ap1-gX-uCy" secondAttribute="trailing" id="onY-37-tgO"/>
                                                 <constraint firstItem="Ap1-gX-uCy" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N4B-Wh-MzV" secondAttribute="trailing" constant="8" id="rCX-kn-mKP"/>
                                                 <constraint firstItem="Ap1-gX-uCy" firstAttribute="top" secondItem="byx-lX-rzm" secondAttribute="top" constant="4" id="u03-aW-aI5"/>
                                                 <constraint firstItem="Ap1-gX-uCy" firstAttribute="trailing" secondItem="uxb-Vb-sw1" secondAttribute="trailing" id="zvZ-Ik-l41"/>
@@ -80,9 +81,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP_Black"/>
                         <constraints>
+                            <constraint firstItem="A3C-hx-sdr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Bg8-Vd-ocT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="A3C-hx-sdr" secondAttribute="trailing" constant="16" id="WjI-IC-9mZ"/>
+                            <constraint firstItem="A3C-hx-sdr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xax-uq-Mef"/>
                             <constraint firstItem="A3C-hx-sdr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="cYy-2t-Ehn"/>
-                            <constraint firstItem="A3C-hx-sdr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mJg-Ee-6Xc"/>
-                            <constraint firstAttribute="trailing" secondItem="A3C-hx-sdr" secondAttribute="trailing" id="tJY-Fg-Ube"/>
+                            <constraint firstItem="A3C-hx-sdr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="s61-7u-xpE"/>
                             <constraint firstAttribute="bottom" secondItem="A3C-hx-sdr" secondAttribute="bottom" id="xsm-2h-Pob"/>
                         </constraints>
                     </view>
