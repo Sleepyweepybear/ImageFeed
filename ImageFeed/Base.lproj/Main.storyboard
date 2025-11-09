@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dfk-nD-0YN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t06-dy-kTY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -162,7 +162,7 @@
                             <constraint firstItem="kCD-b9-FZq" firstAttribute="trailing" secondItem="i6f-H0-G4W" secondAttribute="trailing" id="zNc-av-ioU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="tab_profile_active" id="q0d-ef-vou"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_profile_active" selectedImage="tab_profile_active" id="q0d-ef-vou"/>
                     <navigationItem key="navigationItem" id="CGR-4y-K4k"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="kCD-b9-FZq" id="LNW-Ug-y30"/>
@@ -177,26 +177,27 @@
             <point key="canvasLocation" x="-1098.4732824427481" y="-142.25352112676057"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="Pcg-Ol-d3I">
+        <scene sceneID="0VF-wr-mgZ">
             <objects>
-                <tabBarController id="dfk-nD-0YN" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="buG-D1-Fts">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="t06-dy-kTY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QT9-3t-qp9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="YP_Black"/>
                         <color key="selectedImageTintColor" name="YP_White"/>
                         <tabBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" name="YP_Black"/>
+                            <color key="backgroundColor" red="0.1019607843" green="0.1058823529" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="b6E-3j-jON"/>
-                        <segue destination="Eyb-HC-PgS" kind="relationship" relationship="viewControllers" id="giG-E3-Rbb"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jib-ZN-JSb"/>
+                        <segue destination="Eyb-HC-PgS" kind="relationship" relationship="viewControllers" id="QJq-aG-JBf"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zh-2g-RdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYx-55-j0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1885" y="-234"/>
+            <point key="canvasLocation" x="-1944" y="-511"/>
         </scene>
     </scenes>
     <resources>
