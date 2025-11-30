@@ -2,12 +2,12 @@ import Foundation
 
 final class OAuth2Service {
     static let shared = OAuth2Service()
-    private init() { }
+    private init() {}
 
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let request = makeOAuthTokenRequest(code: code) else {
             print("[OAuth2Service] Не получилось создать запрос для получения токена")
-            completion(.failure(NSError(domain: "Не получилось создать запрос", code: 0)))
+            completion(.failure(NSError(domain: "OAuth2Service", code: -1)))
             return
         }
 
@@ -23,7 +23,7 @@ final class OAuth2Service {
             guard let httpResponse = response as? HTTPURLResponse else {
                 print("[OAuth2Service] Некорректный HTTP ответ")
                 DispatchQueue.main.async {
-                    completion(.failure(NSError(domain: "Некорректный HTTP ответ", code: 0)))
+                    completion(.failure(NSError(domain: "OAuth2Service", code: -2)))
                 }
                 return
             }
@@ -31,26 +31,28 @@ final class OAuth2Service {
             guard let data = data else {
                 print("[OAuth2Service] Нет данных в ответе")
                 DispatchQueue.main.async {
-                    completion(.failure(NSError(domain: "Нет данных", code: 0)))
+                    completion(.failure(NSError(domain: "OAuth2Service", code: -3)))
                 }
                 return
             }
 
             guard (200...299).contains(httpResponse.statusCode) else {
-                print("[OAuth2Service] Ответ Unsplash со статус-кодом \(httpResponse.statusCode)")
+                print("[OAuth2Service] Ошибка Unsplash. Код: \(httpResponse.statusCode)")
                 if let bodyString = String(data: data, encoding: .utf8) {
-                    print("[OAuth2Service] Тело ответа: \(bodyString)")
+                    print("[OAuth2Service] Ответ сервера: \(bodyString)")
                 }
                 DispatchQueue.main.async {
-                    completion(.failure(NSError(domain: "Некорректный статус-код", code: httpResponse.statusCode)))
+                    completion(.failure(NSError(domain: "OAuth2Service", code: httpResponse.statusCode)))
                 }
                 return
             }
 
             do {
                 let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
                 let responseBody = try decoder.decode(OAuthTokenResponseBody.self, from: data)
                 let token = responseBody.accessToken
+
                 print("[OAuth2Service] Токен получен: \(token)")
 
                 OAuth2TokenStorage.shared.token = token
@@ -68,10 +70,10 @@ final class OAuth2Service {
 
         task.resume()
     }
-    
+
     private func makeOAuthTokenRequest(code: String) -> URLRequest? {
         guard var urlComponents = URLComponents(string: "https://unsplash.com/oauth/token") else {
-            print("[OAuth2Service] Не удалось создать URLComponents для токен-запроса")
+            print("[OAuth2Service] Не удалось создать URLComponents")
             return nil
         }
 
@@ -84,7 +86,7 @@ final class OAuth2Service {
         ]
 
         guard let authTokenUrl = urlComponents.url else {
-            print("[OAuth2Service] Не удалось получить URL из URLComponents: \(urlComponents)")
+            print("[OAuth2Service] Не удалось получить URL из компонентов")
             return nil
         }
 
@@ -92,3 +94,4 @@ final class OAuth2Service {
         request.httpMethod = "POST"
         return request
     }
+}
