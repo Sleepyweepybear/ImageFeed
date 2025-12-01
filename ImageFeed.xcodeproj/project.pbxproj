@@ -229,6 +229,9 @@
 			);
 			mainGroup = FBAEDDE92E59F73F00CBB3AF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FB8FE1F22EDDE791002B9167 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBAEDDF32E59F73F00CBB3AF /* Products */;
 			projectDirPath = "";
@@ -596,6 +599,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FB8FE1F22EDDE791002B9167 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = FBAEDDEA2E59F73F00CBB3AF /* Project object */;
 }
