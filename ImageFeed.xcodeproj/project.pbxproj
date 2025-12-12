@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FB2AFAB72EE9B6CD00F07A31 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = FB2AFAB62EE9B6CD00F07A31 /* SwiftKeychainWrapper */; };
+		FB8BAB312EEC38FC009BDF7A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8BAB302EEC38FC009BDF7A /* WebKit.framework */; };
 		FB901BA42EDDF87D001D8B82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB901B952EDDF87D001D8B82 /* LaunchScreen.storyboard */; };
 		FB901BAE2EDDF965001D8B82 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = FB901BAD2EDDF965001D8B82 /* ProgressHUD */; };
 		FB901BC22EE860B2001D8B82 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FB901BC12EE860B2001D8B82 /* Kingfisher */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB8BAB302EEC38FC009BDF7A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FB901B992EDDF87D001D8B82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBAEDDF22E59F73F00CBB3AF /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAEDE082E59F74100CBB3AF /* ImageFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 			files = (
 				FB901BC22EE860B2001D8B82 /* Kingfisher in Frameworks */,
 				FB901BAE2EDDF965001D8B82 /* ProgressHUD in Frameworks */,
+				FB8BAB312EEC38FC009BDF7A /* WebKit.framework in Frameworks */,
 				FB2AFAB72EE9B6CD00F07A31 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB8BAB2F2EEC38FB009BDF7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB8BAB302EEC38FC009BDF7A /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FBAEDDE92E59F73F00CBB3AF = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +114,7 @@
 				FB901B952EDDF87D001D8B82 /* LaunchScreen.storyboard */,
 				FBAEDE0B2E59F74100CBB3AF /* ImageFeedTests */,
 				FBAEDE152E59F74100CBB3AF /* ImageFeedUITests */,
+				FB8BAB2F2EEC38FB009BDF7A /* Frameworks */,
 				FBAEDDF32E59F73F00CBB3AF /* Products */,
 			);
 			sourceTree = "<group>";
