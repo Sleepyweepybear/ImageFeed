@@ -16,9 +16,9 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named:"YP_Black")
-
+        
         addViewToTheScreen()
-                
+        
         if let profile = ProfileService.shared.profile {
             updateProfileDetails(profile: profile)
         }
@@ -28,7 +28,7 @@ final class ProfileViewController: UIViewController {
                 object: nil,
                 queue: .main
             ) { [weak self] _ in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.updateAvatar()
             }
         updateAvatar()
@@ -39,47 +39,47 @@ final class ProfileViewController: UIViewController {
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let imageUrl = URL(string: profileImageURL),
             let imageView = profileImageView
-                   else { return }
-
-                   print("imageUrl: \(imageUrl)")
-            let url = URL(string: profileImageURL)
+        else { return }
+        
+        print("imageUrl: \(imageUrl)")
+        let url = URL(string: profileImageURL)
         
         let placeholderImage = UIImage(systemName: "person.circle.fill")?
-                   .withTintColor(.lightGray, renderingMode: .alwaysOriginal)
-                   .withConfiguration(UIImage.SymbolConfiguration(pointSize: 70, weight: .regular, scale: .large))
-
-               let processor = RoundCornerImageProcessor(cornerRadius: 35)
-               imageView.kf.indicatorType = .activity
-               imageView.kf.setImage(
-                   with: imageUrl,
-                   placeholder: placeholderImage,
-                   options: [
-                       .processor(processor),
-                       .scaleFactor(UIScreen.main.scale),
-                       .cacheOriginalImage,
-                       .forceRefresh
-                   ]) { result in
-                       switch result {
-                       case .success(let value):
-                           print(value.image)
-                           print(value.cacheType)
-                           print(value.source)
-                       case .failure(let error):
-                           print(error)
-                       }
-                   }
-           }
-
+            .withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 70, weight: .regular, scale: .large))
+        
+        let processor = RoundCornerImageProcessor(cornerRadius: 35)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(
+            with: imageUrl,
+            placeholder: placeholderImage,
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage,
+                .forceRefresh
+            ]) { result in
+                switch result {
+                case .success(let value):
+                    print(value.image)
+                    print(value.cacheType)
+                    print(value.source)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
     private func updateProfileDetails(profile: Profile) {
         nameLabel?.text = profile.name.isEmpty
-            ? "Имя не указано"
-            : profile.name
+        ? "Имя не указано"
+        : profile.name
         loginLabel?.text = profile.loginName.isEmpty
-            ? "@неизвестный_пользователь"
-            : profile.loginName
+        ? "@неизвестный_пользователь"
+        : profile.loginName
         descriptionLabel?.text = (profile.bio?.isEmpty ?? true)
-            ? "Профиль не заполнен"
-            : profile.bio
+        ? "Профиль не заполнен"
+        : profile.bio
     }
     
     private func addViewToTheScreen () {
@@ -89,11 +89,11 @@ final class ProfileViewController: UIViewController {
         let loginLabel = UILabel()
         let descriptionLabel = UILabel()
         let logoutButtonImage = UIImage(named: "logout_button") ?? UIImage()
-              let logoutButton = UIButton.systemButton(
-                  with: logoutButtonImage,
-                  target: self,
-                  action: #selector(didTapLogoutButton)
-              )
+        let logoutButton = UIButton.systemButton(
+            with: logoutButtonImage,
+            target: self,
+            action: #selector(didTapLogoutButton)
+        )
         
         self.nameLabel = nameLabel
         self.loginLabel = loginLabel
@@ -165,17 +165,17 @@ final class ProfileViewController: UIViewController {
         
         let emptyProfile = UIImageView(image: UIImage(named: "emptyProfile"))
         emptyProfile.translatesAutoresizingMaskIntoConstraints = false
-                view.addSubview(emptyProfile)
+        view.addSubview(emptyProfile)
         guard let logoutButton = self.logoutButton else { return }
-                
-                NSLayoutConstraint.activate([
-                    emptyProfile.widthAnchor.constraint(equalToConstant: 70),
-                    emptyProfile.heightAnchor.constraint(equalToConstant: 70),
-                    emptyProfile.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                    emptyProfile.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-                    
-                    logoutButton.centerYAnchor.constraint(equalTo: emptyProfile.centerYAnchor)
-                ])
+        
+        NSLayoutConstraint.activate([
+            emptyProfile.widthAnchor.constraint(equalToConstant: 70),
+            emptyProfile.heightAnchor.constraint(equalToConstant: 70),
+            emptyProfile.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            emptyProfile.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            
+            logoutButton.centerYAnchor.constraint(equalTo: emptyProfile.centerYAnchor)
+        ])
     }
     
 }

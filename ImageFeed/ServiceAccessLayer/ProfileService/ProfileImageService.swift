@@ -15,7 +15,7 @@ final class ProfileImageService {
     static let shared = ProfileImageService()
     private init() {}
     
-    static let didChangeNotification = Notification.Name(rawValue: "ProfileImageProviderDidChange")
+    static let didChangeNotification = Notification.Name("ProfileImageProviderDidChange")
 
     
     private(set) var avatarURL: String?

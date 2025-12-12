@@ -15,36 +15,36 @@ final class WebViewViewController: UIViewController {
     @IBOutlet private var progressView: UIProgressView!
     
     private var estimatedProgressObservation: NSKeyValueObservation?
-
+    
     weak var delegate: WebViewViewControllerDelegate?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         webView.navigationDelegate = self
         
         observeEstimatedProgress()
         loadAuthView()
     }
-
+    
     private func loadAuthView() {
         guard var urlComponents = URLComponents(string: WebViewConstants.unsplashAuthorizeURLString) else {
             print("[WebViewViewController] Не удалось создать URLComponents для авторизации")
             return
         }
-
+        
         urlComponents.queryItems = [
             URLQueryItem(name: "client_id", value: Constants.accessKey),
             URLQueryItem(name: "redirect_uri", value: Constants.redirectURI),
             URLQueryItem(name: "response_type", value: "code"),
             URLQueryItem(name: "scope", value: Constants.accessScope)
         ]
-
+        
         guard let url = urlComponents.url else {
             print("[WebViewViewController] Не удалось получить URL из URLComponents: \(urlComponents)")
             return
         }
-
+        
         let request = URLRequest(url: url)
         webView.load(request)
         
@@ -56,21 +56,21 @@ final class WebViewViewController: UIViewController {
     }
     
     private func observeEstimatedProgress() {
-           estimatedProgressObservation = webView.observe(
-               \.estimatedProgress,
-               options: [.new]
-           ) { [weak self] _, _ in
-               self?.updateProgress()
-           }
-       }
+        estimatedProgressObservation = webView.observe(
+            \.estimatedProgress,
+             options: [.new]
+        ) { [weak self] _, _ in
+            self?.updateProgress()
+        }
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         estimatedProgressObservation?.invalidate()
         estimatedProgressObservation = nil
     }
-   
-
+    
+    
     private func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001
@@ -90,7 +90,7 @@ extension WebViewViewController: WKNavigationDelegate {
             decisionHandler(.allow)
         }
     }
-
+    
     private func code(from navigationAction: WKNavigationAction) -> String? {
         if
             let url = navigationAction.request.url,
