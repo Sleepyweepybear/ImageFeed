@@ -6,7 +6,11 @@ static let reuseIdentifier = "ImagesListCell"
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
 
-
+    override func prepareForReuse() {
+         super.prepareForReuse()
+         cellImage.kf.cancelDownloadTask()
+     }
+    
 override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
